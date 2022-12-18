@@ -15,7 +15,7 @@ const data = generateHeight(worldWidth, worldDepth);
 
 const geometry = new THREE.PlaneGeometry(7500, 7500, worldWidth - 1, worldDepth - 1);
 geometry.rotateX(- Math.PI / 2);
-
+// debugger
 const vertices = geometry.attributes.position.array;
 
 for (let i = 0, j = 0, l = vertices.length; i < l; i++, j += 3) {
@@ -28,7 +28,10 @@ const texture = new THREE.CanvasTexture(generateTexture(data, worldWidth, worldD
 texture.wrapS = THREE.ClampToEdgeWrapping;
 texture.wrapT = THREE.ClampToEdgeWrapping;
 
-export const terrain = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ map: texture }));
+export const terrain = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ 
+    map: texture,
+    side: THREE.DoubleSide
+ }));
 
 
 
@@ -100,6 +103,8 @@ function generateTexture(data:Uint8Array, width:number, height:number) {
     }
 
     context.putImageData(image, 0, 0);
+    
+    // return canvas;
 
     // Scaled 4x
 
