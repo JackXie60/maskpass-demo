@@ -3,7 +3,7 @@
 import * as THREE from 'three';
 
 
-import { ImprovedNoise } from 'three/examples/jsm/math/ImprovedNoise.js';
+import { ImprovedNoise } from 'three/examples/jsm/math/ImprovedNoise';
 
 
 const worldWidth = 256, worldDepth = 256;
